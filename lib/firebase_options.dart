@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1077822767651',
     projectId: 'learningdart-8edef',
     storageBucket: 'learningdart-8edef.appspot.com',
-    iosClientId: '1077822767651-vrlb802nqvnhbpei1laghhv9p9hbg9ft.apps.googleusercontent.com',
+    iosClientId:
+        '1077822767651-vrlb802nqvnhbpei1laghhv9p9hbg9ft.apps.googleusercontent.com',
     iosBundleId: 'com.example.learningdart',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1077822767651',
     projectId: 'learningdart-8edef',
     storageBucket: 'learningdart-8edef.appspot.com',
-    iosClientId: '1077822767651-vrlb802nqvnhbpei1laghhv9p9hbg9ft.apps.googleusercontent.com',
+    iosClientId:
+        '1077822767651-vrlb802nqvnhbpei1laghhv9p9hbg9ft.apps.googleusercontent.com',
     iosBundleId: 'com.example.learningdart',
   );
 }
