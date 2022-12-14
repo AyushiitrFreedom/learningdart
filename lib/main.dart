@@ -13,6 +13,14 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Hello World"),
+          backgroundColor: Colors.red,
+        ),
+        backgroundColor: Colors.red,
+        body: Row(
+          children: [
+            Image(image: AssetImage("images/dice1.png")),
+            Image(image: AssetImage("images/dice1.png")),
+          ],
         ),
       ),
     );
