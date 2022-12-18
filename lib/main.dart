@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:learningdart/loggedin.dart';
+import 'package:learningdart/login_page.dart';
+import 'package:custom_gradient_button/custom_gradient_button.dart';
+import 'package:learningdart/sign_up.dart';
+
 
 void main() {
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,19 +17,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello World"),
-          backgroundColor: Colors.red,
-        ),
-        backgroundColor: Colors.red,
-        body: Row(
-          children: [
-            Image(image: AssetImage("images/dice1.png")),
-            Image(image: AssetImage("images/dice1.png")),
-          ],
-        ),
-      ),
+      home: LoginPage(),
+      routes: <String, WidgetBuilder>{
+        '/login' :(context) => LoginPage(),
+        '/signup':(context) => SignUp(),
+        '/loggedin':(context) => LoggedIn(),
+      },
     );
   }
 }
+
+
