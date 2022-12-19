@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 70.0,
+            height: 40.0,
           ),
           const SizedBox(
             width: 300.0,
@@ -74,7 +74,7 @@ class LoginPage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Sign up",
+                  "log in",
                   style: TextStyle(fontSize: 35, color: Colors.white),
                 ),
               ),
