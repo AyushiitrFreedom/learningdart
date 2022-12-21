@@ -38,34 +38,44 @@ class SignUp extends StatelessWidget {
           const SizedBox(
             height: 70.0,
           ),
-          Form(child: Column()),
-          SizedBox(
-            width: 300.0,
-            child: TextFormField(
-              onChanged: (value) {
-                email = value;
-              },
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email),
-                hintText: 'Email',
+          Form(
+            key: _formkey,
+              child: Column(
+            children: [
+              SizedBox(
+                width: 300.0,
+                child: TextFormField(
+                  validator: (value) =>
+                      value!.isEmpty ? "enter an email" : null,
+                  onChanged: (value) {
+                    email = value;
+                  },
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email),
+                    hintText: 'Email',
+                  ),
+                ),
               ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            width: 300.0,
-            child: TextFormField(
-              onChanged: (value) {
-                password = value;
-              },
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock),
-                hintText: 'Password',
+              SizedBox(
+                height: 20,
               ),
-            ),
-          ),
+              SizedBox(
+                width: 300.0,
+                child: TextFormField(
+                  validator: (value) => value!.length < 6
+                      ? "password length should be more than 6"
+                      : null,
+                  onChanged: (value) {
+                    password = value;
+                  },
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    hintText: 'Password',
+                  ),
+                ),
+              ),
+            ],
+          )),
           SizedBox(
             height: 70.0,
           ),
