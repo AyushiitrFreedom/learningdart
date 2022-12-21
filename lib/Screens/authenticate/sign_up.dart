@@ -110,9 +110,21 @@ class SignUp extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 30.0,
+            height: 20.0,
           ),
-          
+          new GestureDetector(
+            onTap: () => {Navigator.pushNamed(context, '/loginpage')},
+            child: Text(
+              "login",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
           Text(
             "sign up using on the following method",
             textAlign: TextAlign.center,
