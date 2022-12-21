@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:learningdart/Services/auth.dart';
 
 class LoggedIn extends StatelessWidget {
-  const LoggedIn({super.key});
+  LoggedIn({super.key});
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,9 @@ class LoggedIn extends StatelessWidget {
             height: 70.0,
           ),
           GestureDetector(
-            onTap: () => {Navigator.pop(context)},
+            onTap: () async {
+              await _auth.SignOut();
+            },
             child: Container(
               height: 70,
               width: 200,

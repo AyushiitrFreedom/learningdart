@@ -1,12 +1,17 @@
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:learningdart/Screens/authenticate/sign_up.dart';
+import 'package:learningdart/Services/auth.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +65,7 @@ class LoginPage extends StatelessWidget {
             height: 70.0,
           ),
           new GestureDetector(
-            onTap: () => {
-              Navigator.pushNamed(context, '/loggedin')
-            },
+            onTap: () => {Navigator.pushNamed(context, '/loggedin')},
             child: Container(
               height: 70,
               width: 200,
@@ -97,9 +100,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               new GestureDetector(
-                onTap: () => {
-                  Navigator.pushNamed(context, '/signup')
-                },
+                onTap: () => {Navigator.pushNamed(context, '/signup')},
                 child: Text(
                   "Create",
                   style: TextStyle(
@@ -110,6 +111,27 @@ class LoginPage extends StatelessWidget {
               )
             ],
           ),
+          SizedBox(
+            height: 20,
+          ),
+          new GestureDetector(
+            onTap: (() async {
+              dynamic result = await _auth.signInAnon();
+              if (result == null) {
+                print("error");
+              } else {
+                print("signed in");
+                print(result.uid);
+              }
+            }),
+            child: Text(
+              "Anonymus login",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+          )
         ],
       ),
     );
