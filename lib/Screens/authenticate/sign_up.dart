@@ -38,6 +38,7 @@ class SignUp extends StatelessWidget {
           const SizedBox(
             height: 70.0,
           ),
+          Form(child: Column()),
           SizedBox(
             width: 300.0,
             child: TextFormField(
