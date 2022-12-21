@@ -38,9 +38,12 @@ class SignUp extends StatelessWidget {
           const SizedBox(
             height: 70.0,
           ),
-          const SizedBox(
+          SizedBox(
             width: 300.0,
-            child: TextField(
+            child: TextFormField(
+              onChanged: (value) {
+                email = value;
+              },
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.email),
                 hintText: 'Email',
@@ -50,9 +53,12 @@ class SignUp extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          const SizedBox(
+          SizedBox(
             width: 300.0,
-            child: TextField(
+            child: TextFormField(
+              onChanged: (value) {
+                password = value;
+              },
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock),
                 hintText: 'Password',
@@ -64,8 +70,7 @@ class SignUp extends StatelessWidget {
           ),
           new GestureDetector(
             onTap: () {
-              if (_formkey.currentState!.validate()) 
-              print(email);
+              if (_formkey.currentState!.validate()) print(email);
             },
             child: Container(
               height: 70,
