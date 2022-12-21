@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         // home: LoginPage(),
         routes: <String, WidgetBuilder>{
           '/': (context) => Wrapper(),
+          '/loginpage':(context) => LoginPage(),
           '/signup': (context) => SignUp(),
           '/loggedin': (context) => LoggedIn(),
         },
