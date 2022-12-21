@@ -63,7 +63,10 @@ class SignUp extends StatelessWidget {
             height: 70.0,
           ),
           new GestureDetector(
-            onTap: () => {Navigator.pushNamed(context, '/loggedin')},
+            onTap: () {
+              if (_formkey.currentState!.validate()) 
+              print(email);
+            },
             child: Container(
               height: 70,
               width: 200,
