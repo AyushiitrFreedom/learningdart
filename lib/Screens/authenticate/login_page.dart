@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:learningdart/sign_up.dart';
+import 'package:learningdart/Screens/authenticate/sign_up.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

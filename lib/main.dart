@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:learningdart/loggedin.dart';
-import 'package:learningdart/login_page.dart';
-import 'package:custom_gradient_button/custom_gradient_button.dart';
-import 'package:learningdart/sign_up.dart';
+import 'package:learningdart/Screens/home/loggedin.dart';
+import 'package:learningdart/Screens/authenticate/login_page.dart';
+import 'package:learningdart/Screens/authenticate/sign_up.dart';
 
 
 void main() {
