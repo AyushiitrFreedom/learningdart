@@ -12,9 +12,12 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     // retuen either loggedin or signup widget
     final user = Provider.of<User?>(context);
+    print(user);
     if (user == null) {
-      return LoginPage();
+      print("user became null");
+      return SignUp();
     } else {
+      print("jana chahiye");
       return LoggedIn();
     }
   }

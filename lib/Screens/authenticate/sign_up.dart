@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:learningdart/Services/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatelessWidget {
   SignUp({super.key});
+  final AuthService _auth = AuthService();
   var email, password;
 
   final _formkey = GlobalKey<FormState>();
@@ -39,49 +42,55 @@ class SignUp extends StatelessWidget {
             height: 70.0,
           ),
           Form(
-            key: _formkey,
+              key: _formkey,
               child: Column(
-            children: [
-              SizedBox(
-                width: 300.0,
-                child: TextFormField(
-                  validator: (value) =>
-                      value!.isEmpty ? "enter an email" : null,
-                  onChanged: (value) {
-                    email = value;
-                  },
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email),
-                    hintText: 'Email',
+                children: [
+                  SizedBox(
+                    width: 300.0,
+                    child: TextFormField(
+                      validator: (value) =>
+                          value!.isEmpty ? "enter an email" : null,
+                      onChanged: (value) {
+                        email = value;
+                      },
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
+                        hintText: 'Email',
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 300.0,
-                child: TextFormField(
-                  validator: (value) => value!.length < 6
-                      ? "password length should be more than 6"
-                      : null,
-                  onChanged: (value) {
-                    password = value;
-                  },
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.lock),
-                    hintText: 'Password',
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-              ),
-            ],
-          )),
+                  SizedBox(
+                    width: 300.0,
+                    child: TextFormField(
+                      validator: (value) => value!.length < 6
+                          ? "password length should be more than 6"
+                          : null,
+                      onChanged: (value) {
+                        password = value;
+                      },
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        hintText: 'Password',
+                      ),
+                    ),
+                  ),
+                ],
+              )),
           SizedBox(
             height: 70.0,
           ),
           new GestureDetector(
-            onTap: () {
-              if (_formkey.currentState!.validate()) print(email);
+            onTap: () async {
+              if (_formkey.currentState!.validate()) {
+                dynamic result =
+                    await _auth.registerWithEmailAndPassword(email, password);
+                if (result == null) {
+                  print("registration error");
+                }
+              }
             },
             child: Container(
               height: 70,

@@ -8,13 +8,11 @@ import 'package:learningdart/Screens/wrapper.dart';
 import 'package:learningdart/Services/auth.dart';
 import 'package:provider/provider.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -27,13 +25,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         // home: LoginPage(),
         routes: <String, WidgetBuilder>{
-          '/' :(context) => Wrapper(),
-          '/signup':(context) => SignUp(),
-          '/loggedin':(context) => LoggedIn(),
+          '/': (context) => Wrapper(),
+          '/signup': (context) => SignUp(),
+          '/loggedin': (context) => LoggedIn(),
         },
       ),
     );
   }
 }
-
-
