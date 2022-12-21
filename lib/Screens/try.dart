@@ -7,6 +7,7 @@ class SignUp extends StatelessWidget {
   var email, password;
 
   final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,33 +39,58 @@ class SignUp extends StatelessWidget {
           const SizedBox(
             height: 70.0,
           ),
-          const SizedBox(
-            width: 300.0,
-            child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email),
-                hintText: 'Email',
+          Form(
+            key: _formkey,
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black,width: 2)
               ),
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          const SizedBox(
-            width: 300.0,
-            child: TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.lock),
-                hintText: 'Password',
+              height: 200,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: 300.0,
+                    child: TextFormField(
+                      validator: (value) => value!.isEmpty? "enter an email":null,
+                      onChanged: (value) {
+                        email = value;
+                      },
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
+                        hintText: 'Email',
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    width: 300.0,
+                    child: TextFormField(
+                      validator: (value) => value!.length < 6? "password length should be more than 6":null,
+                      onChanged: (value) {
+                        password = value;
+                      },
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.lock),
+                        hintText: 'Password',
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
           SizedBox(
             height: 70.0,
           ),
-          new GestureDetector(
-            onTap: () => {Navigator.pushNamed(context, '/loggedin')},
-            child: Container(
+          GestureDetector(onTap: () {
+            if (_formkey.currentState!.validate()) {
+              print(email);
+            }
+            child:
+            Container(
               height: 70,
               width: 200,
               decoration: BoxDecoration(
@@ -78,6 +104,19 @@ class SignUp extends StatelessWidget {
                   "Sign up",
                   style: TextStyle(fontSize: 35, color: Colors.white),
                 ),
+              ),
+            );
+          }),
+          SizedBox(
+            height: 30.0,
+          ),
+          new GestureDetector(
+            onTap: () => {Navigator.pop(context)},
+            child: Text(
+              "already have an acount?",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
               ),
             ),
           ),

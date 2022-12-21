@@ -12,6 +12,7 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
   final AuthService _auth = AuthService();
+  var email, password;
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +41,12 @@ class LoginPage extends StatelessWidget {
           const SizedBox(
             height: 40.0,
           ),
-          const SizedBox(
+          SizedBox(
             width: 300.0,
             child: TextField(
+              onChanged: (value) {
+                email = value;
+              },
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.email),
                 hintText: 'Email',
@@ -52,9 +56,12 @@ class LoginPage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          const SizedBox(
+          SizedBox(
             width: 300.0,
             child: TextField(
+              onChanged: (value) {
+                password = value;
+              },
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.lock),
                 hintText: 'Password',
@@ -65,7 +72,10 @@ class LoginPage extends StatelessWidget {
             height: 70.0,
           ),
           new GestureDetector(
-            onTap: () => {Navigator.pushNamed(context, '/loggedin')},
+            onTap: () {
+              print(email);
+              print(password);
+            },
             child: Container(
               height: 70,
               width: 200,
