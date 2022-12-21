@@ -112,6 +112,7 @@ class SignUp extends StatelessWidget {
           SizedBox(
             height: 30.0,
           ),
+          
           Text(
             "sign up using on the following method",
             textAlign: TextAlign.center,
